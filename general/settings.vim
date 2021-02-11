@@ -41,4 +41,8 @@ au! BufWritePost $MYVIMRC source %        " auto source when writing to init.vm 
  cmap w!! w !sudo tee %
 
  set colorcolumn=80
- highlight ColorColumn ctermbg=0 guibg=lightgrey
+" highlight ColorColumn ctermbg=0 guibg=lightgrey
+
+set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox

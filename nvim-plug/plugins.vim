@@ -7,15 +7,18 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-
+    "fugitive
+    Plug 'tpope/vim-fugitive'
+    "git branch visualization
+    Plug 'vim-airline/vim-airline'
+    "gruvbox theme
+    Plug 'morhetz/gruvbox'
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " File Explorer
-    Plug 'scrooloose/NERDTree'
+    "Plug 'scrooloose/NERDTree'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Intellisense"
     Plug 'neoclide/coc.nvim', {'branch':'release'}
-    " Quick movement"
-    Plug 'justinmk/vim-sneak'
     call plug#end()
