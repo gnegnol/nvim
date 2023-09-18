@@ -33,9 +33,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- overwrite without losing the buffer
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
 -- set system or vim register
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -45,13 +42,19 @@ vim.keymap.set({ "i", "v" }, "jk", "<Esc>")
 vim.keymap.set({ "i", "v" }, "kj", "<Esc>")
 
 
+-- git keymaps
+vim.keymap.set("n","<leader>ga", ":G add %<ESC>")
+vim.keymap.set("n","<leader>gc", ":G commit<ESC>")
+vim.keymap.set("n","<leader>gp", ":G push<ESC>")
+vim.keymap.set("n","<leader>gs", ":G status<ESC>")
 
 
-vim.keymap.set('n', '<leader>tg', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>tf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>th', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+
+vim.keymap.set('n', '<leader>tg', require('telescope.builtin').git_files, { desc = '[T]elescope [G]it' })
+vim.keymap.set('n', '<leader>tf', require('telescope.builtin').find_files, { desc = '[T]elescope [F]iles' })
+vim.keymap.set('n', '<leader>th', require('telescope.builtin').helpetags, { desc = '[T]elescope [H]elp' })
 vim.keymap.set('n', '<leader>tw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>tg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>ts', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>tr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 
