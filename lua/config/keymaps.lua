@@ -52,7 +52,7 @@ vim.keymap.set("n","<leader>gs", ":G status<ESC>")
 
 vim.keymap.set('n', '<leader>tg', require('telescope.builtin').git_files, { desc = '[T]elescope [G]it' })
 vim.keymap.set('n', '<leader>tf', require('telescope.builtin').find_files, { desc = '[T]elescope [F]iles' })
-vim.keymap.set('n', '<leader>th', require('telescope.builtin').helpetags, { desc = '[T]elescope [H]elp' })
+vim.keymap.set('n', '<leader>th', require('telescope.builtin').help_tags, { desc = '[T]elescope [H]elp' })
 vim.keymap.set('n', '<leader>tw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>ts', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>td', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
