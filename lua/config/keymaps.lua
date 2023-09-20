@@ -1,6 +1,7 @@
+--
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -17,7 +18,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	pattern = '*',
 })
 -- remaps from ThePrimagen
-vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>ls", vim.cmd.Ex, {desc = "[L]i[s]t files"})
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -34,24 +35,26 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- set system or vim register
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-
--- can't go without it
-vim.keymap.set({ "i", "v" }, "jk", "<Esc>")
-vim.keymap.set({ "i", "v" }, "kj", "<Esc>")
+--vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+--vim.keymap.set("n", "<leader>Y", [["+Y]])
+local wk = require("which-key")
+wk.register({
+	["y"] = { '"+y', "copy to clipboard", mode = "v"},
+	["Y"] = { [["+Y]], "copy entire row to clipboard"}
+},
+{ prefix = "<leader>"})
 
 
 -- git keymaps
-vim.keymap.set("n","<leader>ga", ":G add %<ESC>")
-vim.keymap.set("n","<leader>gc", ":G commit<ESC>")
-vim.keymap.set("n","<leader>gp", ":G push<ESC>")
-vim.keymap.set("n","<leader>gs", ":G status<ESC>")
+vim.keymap.set("n","<leader>ga", ":G add %<ESC>", {desc = '[G]it [A]dd'})
+vim.keymap.set("n","<leader>gc", ":G commit<ESC>", {desc = '[G]it [C]ommit'})
+vim.keymap.set("n","<leader>gp", ":G push<ESC>", {desc = '[G]it [P]ush'})
+vim.keymap.set("n","<leader>gs", ":G status<ESC>",{desc = '[G]it [S]tatus'})
 
 
 
-vim.keymap.set('n', '<leader>tg', require('telescope.builtin').git_files, { desc = '[T]elescope [G]it' })
-vim.keymap.set('n', '<leader>tf', require('telescope.builtin').find_files, { desc = '[T]elescope [F]iles' })
+vim.keymap.set('n', '<leader>tg', require('telescope.builtin').git_files, { desc = '[T]elescope [G]it'})
+vim.keymap.set('n', '<leader>tf', require('telescope.builtin').find_files, { desc = '[T]elescope [F]iles'})
 vim.keymap.set('n', '<leader>th', require('telescope.builtin').help_tags, { desc = '[T]elescope [H]elp' })
 vim.keymap.set('n', '<leader>tw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>ts', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
